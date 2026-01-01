@@ -5,10 +5,10 @@ torch==2.1.2+cu121
 torchvision==0.16.2+cu121
 --find-links https://download.pytorch.org/whl/cu121/torch_stable.html
 
-diffusers>=0.31.0
+diffusers>=0.36.0
 transformers>=4.41.0
 accelerate==0.27.2
-huggingface_hub==0.20.3
+huggingface_hub>=0.34.0  # no more fixed 0.20.3
 
 safetensors
 pillow
