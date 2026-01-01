@@ -8,6 +8,7 @@ diffusers==0.27.2
 transformers==4.38.2
 accelerate==0.27.2
 huggingface_hub==0.20.3
+triton==2.1.0
 
 safetensors
 pillow

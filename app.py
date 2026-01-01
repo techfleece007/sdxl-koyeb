@@ -13,20 +13,28 @@ pipeline = StableDiffusionImg2ImgPipeline.from_pretrained(
     torch_dtype=torch.float16,
     use_safetensors=True
 )
+
 pipeline.to("cuda")
-pipeline.enable_xformers_memory_efficient_attention()
+
+# Safe optimizations (DO NOT crash if unavailable)
+pipeline.enable_attention_slicing()
+
+try:
+    pipeline.enable_xformers_memory_efficient_attention()
+    print("xformers enabled")
+except Exception:
+    print("xformers not available, running without it")
 
 @app.post("/edit")
 async def edit_image(
     prompt: str = Form(...),
     image: UploadFile = File(...)
 ):
-    # Read and preprocess image
     img_data = await image.read()
     init_image = Image.open(io.BytesIO(img_data)).convert("RGB")
     init_image = init_image.resize((1024, 1024))
 
-    with torch.no_grad():
+    with torch.inference_mode():
         result = pipeline(
             prompt=prompt,
             image=init_image,
@@ -35,8 +43,8 @@ async def edit_image(
             num_inference_steps=30
         ).images[0]
 
-    # Return as PNG
     buf = io.BytesIO()
     result.save(buf, format="PNG")
     buf.seek(0)
+
     return StreamingResponse(buf, media_type="image/png")
