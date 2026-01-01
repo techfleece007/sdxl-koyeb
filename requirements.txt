@@ -4,12 +4,14 @@ python-multipart
 pillow
 numpy<2
 
+# PyTorch for CUDA 12.1
 torch==2.1.2+cu121
 torchvision==0.16.2+cu121
 --find-links https://download.pytorch.org/whl/cu121/torch_stable.html
 
-diffusers==0.41.1
-transformers==4.44.2
+# Diffusers (stable working version)
+diffusers==0.36.0
+transformers>=4.44.2
 accelerate==0.27.2
-huggingface_hub==0.16.4
+huggingface_hub>=0.16.4
 safetensors
