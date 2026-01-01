@@ -1,20 +1,16 @@
-# PyTorch + Vision
-torch==2.1.2+cu121
-torchvision==0.16.2+cu121
-
-# Hugging Face
-diffusers==0.41.0
-transformers==4.41.1
-accelerate==0.20.3
-safetensors
-xformers
-
-# Core Python
-numpy<2
-pillow
-typing-extensions
-
-# FastAPI server
 fastapi==0.110.0
 uvicorn==0.27.1
+
+torch==2.1.2
+torchvision==0.16.2
+
+diffusers>=0.28.0
+transformers>=4.39.0
+accelerate==0.27.2
+huggingface_hub==0.20.3
+
+safetensors
+pillow
 python-multipart
+
+numpy<2
