@@ -71,7 +71,7 @@ pipeline = StableDiffusionXLImg2ImgPipeline.from_pretrained(
     "stabilityai/stable-diffusion-xl-base-1.0",
     torch_dtype=torch.float16,
     variant="fp16",  # 2026 standard for consumer GPUs
-    use_safetensors=True
+    use_safetensors=True,
     safety_checker=None
 )
 pipeline.to("cuda")
