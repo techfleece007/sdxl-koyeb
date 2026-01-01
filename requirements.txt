@@ -1,17 +1,16 @@
 fastapi==0.110.0
 uvicorn==0.27.1
+python-multipart
 
-torch==2.1.2+cu121
-torchvision==0.16.2+cu121
---find-links https://download.pytorch.org/whl/cu121/torch_stable.html
+torch==2.1.2
+torchvision==0.16.2
+--find-links download.pytorch.org
 
-diffusers>=0.36.0
+diffusers>=0.31.0
 transformers>=4.41.0
 accelerate==0.27.2
-huggingface_hub>=0.34.0
+huggingface_hub>=0.24.0
 
 safetensors
 pillow
-python-multipart
-
-numpy<2
+numpy<2.0
