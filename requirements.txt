@@ -1,17 +1,19 @@
-# Core ML libraries
-torch==2.1.1+cu121
+# PyTorch & Vision (CUDA 12.1)
+torch==2.1.2+cu121
 torchvision==0.16.2+cu121
+
+# Hugging Face Diffusers & Transformers
 diffusers==0.41.0
 transformers==4.41.1
 accelerate==0.20.3
 safetensors
 xformers
 
-# Image handling
+# Image processing
 pillow
 numpy<2
 
-# FastAPI server
+# Web server
 fastapi==0.110.0
 uvicorn==0.27.1
 python-multipart
